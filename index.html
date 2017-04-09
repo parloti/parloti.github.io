@@ -1,12 +1,92 @@
 <!doctype html>
-<html ng-app>
+<html lang="en">
 <head>
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>-->
-    <script src="index.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Alex Parloti</title>
+
+    <link href="animations.css" rel="stylesheet" type="text/css">
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          type="text/css">
+
 </head>
-<body>
-<div>
-    <canvas id="game" height="400" width="600"></canvas>
+<body ng-app="ngRepeat">
+<div ng-controller="repeatController">
+    <!-- Modal -->
+    <div class="modal fade" id="{{board.name}}Modal" tabindex="-1" role="dialog"
+         aria-labelledby="{{board.name}}ModalLabel"
+         aria-hidden="true" ng-repeat="board in boards | filter:q as results" on-finish-render="renderedModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="{{board.name}}ModalLabel">{{board.name}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div ng-if="board.name==='About'">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col"
+                                <p>About</p>
+                                <h1>Hi,</h1><em>I'm Alex Parloti.</em>
+
+                                I currently work with Javascript, AngularJS and Animation in HTML5 as Freelancer.
+
+                                When I'm offline, I ... well, I guess I'm always online, but when I get tired of codes
+                                and books I play Age of Empires II: The Conquerors.
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-if="board.name==='Skills'"><p>Skills</p></div>
+                    <div ng-if="board.name==='Projects'"><p>Projects</p></div>
+                    <div ng-if="board.name==='Testimonials'"><p>Testimonials</p></div>
+                    <div ng-if="board.name==='Articles'"><p>Articles</p></div>
+                    <div ng-if="board.name==='Contacts'"><p>Contacts</p></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <!-- cards-->
+        <div class="jumbotron">
+            <div class="card-deck text-center">
+                <div class="card card-inverse card-info text-center btn-info" data-toggle="modal"
+                     data-target="#{{board.name}}Modal"
+                     ng-repeat="board in boards | filter:q as results">
+                    <div ng-click="open(board)">
+                        <span class="card-img-top" ng-class="board.iconClass" aria-hidden="true"></span>
+                        <div class="card-block">
+                            <h4 class="card-title">
+                                {{board.name}}
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+        integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+        crossorigin="anonymous"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+        integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+        crossorigin="anonymous"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular-animate.min.js"></script>
+<script src="script.js"></script>
+
 </body>
 </html>

@@ -1,0 +1,16 @@
+.jumbotron {
+    background-color: #319ac6 !important;
+}
+.card{
+    margin: 15px auto!important;
+    max-width: 15rem;
+    min-width: 15rem;
+    display: inline-block;
+    border-radius: 2rem;
+    padding-top:10px;
+}
+
+.fa.icon-white {
+    color: white;
+    font-size: 8em;
+}

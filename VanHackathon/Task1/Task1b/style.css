@@ -1,0 +1,25 @@
+.ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.hidden {
+    max-height: 150px;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 450px) {
+    .fade {
+        opacity: 0.5;
+        max-height: 50px;
+    }
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}

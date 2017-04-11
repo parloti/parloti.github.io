@@ -1,6 +1,6 @@
 (function (angular) {
     'use strict';
-    angular.module('ngRepeat', ['ngAnimate']).directive('onFinishRender', function ($timeout) {
+    angular.module('portfolio', ['ngAnimate','ng.deviceDetector']).directive('onFinishRender', function ($timeout) {
         return {
             restrict: 'A',
             link: function (scope, element, attr) {
@@ -11,7 +11,9 @@
                 }
             }
         }
-    }).controller('repeatController', ['$scope', function ($scope) {
+    }).controller('repeatController', ['$scope','deviceDetector', function ($scope,deviceDetector) {
+        console.log(deviceDetector);
+        $scope.browser=deviceDetector.browser;
         $scope.boards = [
             {
                 name: 'About',
@@ -47,10 +49,10 @@
         $scope.open = function (board) {
             console.log(board);
         }
-        $scope.$on('renderedModal',function(ngRepeatFinishedEvent) {
+        $scope.$on('renderedModal', function (ngRepeatFinishedEvent) {
             console.log(ngRepeatFinishedEvent);
             console.log("done");
-            $('#AboutModal').modal('show');
+            $('#ContactsModal').modal('show');
         })
 
 

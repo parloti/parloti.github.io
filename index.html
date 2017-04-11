@@ -7,15 +7,14 @@
 
     <title>Alex Parloti</title>
 
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link href="animations.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.css">
     <link href="style.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
-          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-          type="text/css">
 
 </head>
-<body ng-app="ngRepeat">
+<body ng-app="portfolio">
 <div ng-controller="repeatController">
     <!-- Modal -->
     <div class="modal fade" id="{{board.name}}Modal" tabindex="-1" role="dialog"
@@ -50,11 +49,49 @@
                     <div ng-if="board.name==='Projects'"><p>Projects</p></div>
                     <div ng-if="board.name==='Testimonials'"><p>Testimonials</p></div>
                     <div ng-if="board.name==='Articles'"><p>Articles</p></div>
-                    <div ng-if="board.name==='Contacts'"><p>Contacts</p></div>
+                    <div ng-if="board.name==='Contacts'">
+                        <div role="navigation">
+                            <nav class="nav nav-tabs flex-column flex-sm-row" role="tablist">
+                                <a class="nav-link flex-sm-fill text-sm-center active" data-toggle="tab"
+                                   href="#qr-code-panel" role="tab">
+                                    <span class="fa fa-user-circle-o" aria-hidden="true"></span> QRCode
+                                </a>
+                                <a class="nav-link flex-sm-fill text-sm-center" data-toggle="tab" href="#vcard-panel"
+                                   role="tab">
+                                    <span class="fa fa-address-card-o" aria-hidden="true"></span> vCard
+                                </a>
+                                <a class="nav-link flex-sm-fill text-sm-center" data-toggle="tab" href="#social-panel"
+                                   role="tab">Social
+                                </a>
+                                <a class="nav-link flex-sm-fill text-sm-center" data-toggle="tab" href="#message-panel"
+                                   role="tab">
+                                    Message</a>
+                            </nav>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="qr-code-panel" role="tabpanel">
+                                <figure class="figure">
+                                    <figcaption class="figure-caption text-center">Add Me to Your Contacts
+                                        List
+                                    </figcaption>
+                                    <div class="code code-{{browser}}"></div>
+                                </figure>
+                            </div>
+                            <div class="tab-pane" id="vcard-panel" role="tabpanel">
+                                <div class="text-center">
+                                    <a class="nav-tabs nav-link active" href="vcard_alex_parloti.vcf"
+                                       title="vCard download">
+                                    <span class="fa fa-download" aria-hidden="true"></span>
+                                </a>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="social-panel" role="tabpanel">...</div>
+                            <div class="tab-pane" id="message-panel" role="tabpanel">...</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>
@@ -79,15 +116,13 @@
         </div>
     </div>
 </div>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
-        integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
-        crossorigin="anonymous"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
-        integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
-        crossorigin="anonymous"></script>
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular-animate.min.js"></script>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/tether/dist/js/tether.min.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="node_modules/angular/angular.min.js"></script>
+<script src="node_modules/angular-animate/angular-animate.min.js"></script>
+<script src="node_modules/re-tree/re-tree.min.js"></script>
+<script src="node_modules/ng-device-detector/ng-device-detector.min.js"></script>
 <script src="script.js"></script>
 
 </body>

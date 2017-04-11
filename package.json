@@ -1,0 +1,24 @@
+{
+  "name": "alexparloti",
+  "private": true,
+  "version": "1.0.0",
+  "description": "My Portfolio",
+  "repository": "https://github.com/parloti/parloti.github.io",
+  "license": "MIT",
+  "scripts": {
+    "prestart": "npm install",
+    "update": "npm update",
+    "start": "http-server -a localhost -p 8000 -c-1 ./ -o"
+  },
+  "dependencies": {
+    "angular": "^1.6.4",
+    "angular-animate": "^1.6.4",
+    "bootstrap": "^4.0.0-alpha.6",
+    "font-awesome": "^4.7.0",
+    "http-server": "^0.9.0",
+    "jquery": "^3.2.1",
+    "ng-device-detector": "^4.0.3",
+    "re-tree": "0.0.2",
+    "tether": "^1.4.0"
+  }
+}

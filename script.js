@@ -53,6 +53,7 @@
             console.log(ngRepeatFinishedEvent);
             console.log("done");
             $('#ContactsModal').modal('show');
+	        $('nav a:eq(1)').tab('show')
         })
 
 

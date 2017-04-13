@@ -26,6 +26,7 @@
     "gulp-cdn-replace": "^0.6.0",
     "gulp-cdnify": "^1.0.7",
     "gulp-cdnizer": "^1.1.7",
+    "inspect-process":"^0.4.2",
     "http-server": "^0.9.0"
   }
 }

@@ -8,10 +8,8 @@
     <title>Alex Parloti</title>
 
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
-          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-          type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="animations.css" rel="stylesheet" type="text/css">
     <link href="style.css" rel="stylesheet" type="text/css">
 
@@ -21,7 +19,7 @@
     <!-- Modal -->
     <div class="modal fade" id="{{board.name}}Modal" tabindex="-1" role="dialog"
          aria-labelledby="{{board.name}}ModalLabel"
-         aria-hidden="true" ng-repeat="board in boards | filter:q as results" on-finish-render="renderedModal">
+         aria-hidden="true" ng-repeat="board in boards" on-finish-render="renderedModal">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -53,21 +51,12 @@
                     <div ng-if="board.name==='Articles'"><p>Articles</p></div>
                     <div ng-if="board.name==='Contacts'">
                         <div role="navigation">
-                            <nav class="nav nav-tabs flex-column flex-sm-row" role="tablist">
-                                <a class="nav-link flex-sm-fill text-sm-center active" data-toggle="tab"
-                                   href="#qr-code-panel" role="tab">
-                                    <span class="fa fa-user-circle-o" aria-hidden="true"></span> QRCode
+                            <nav class="nav nav-tabs flex-column flex-sm-row justify-content-center" role="tablist">
+                                <a ng-repeat="nav in board.navigation | filter:{isVisible:true}"
+                                   class="nav-link flex-sm-fill text-sm-center {{$index==0?'active':''}}" data-toggle="tab"
+                                   href="{{nav.href}}" role="tab">
+                                    <span class="{{nav.iconClass}}" aria-hidden="true"></span> {{nav.name}}
                                 </a>
-                                <a class="nav-link flex-sm-fill text-sm-center" data-toggle="tab" href="#vcard-panel"
-                                   role="tab">
-                                    <span class="fa fa-address-card-o" aria-hidden="true"></span> vCard
-                                </a>
-                                <a class="nav-link flex-sm-fill text-sm-center" data-toggle="tab" href="#social-panel"
-                                   role="tab">Social
-                                </a>
-                                <a class="nav-link flex-sm-fill text-sm-center" data-toggle="tab" href="#message-panel"
-                                   role="tab">
-                                    Message</a>
                             </nav>
                         </div>
                         <div id="tabs" class="tab-content">
@@ -84,7 +73,7 @@
                                     <div class="row">
                                         <div class="col-6 offset-3">
                                             <figure class="figure">
-                                                <div class="profile profile-{{browser}}"></div>
+                                                <div class="mt-2 profile profile-{{browser}}"></div>
                                                 <figcaption class="figure-caption text-center">
                                                     <h4>Alex Parloti</h4>
                                                 </figcaption>
@@ -171,8 +160,28 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="social-panel" role="tabpanel">...</div>
-                            <div class="tab-pane fade" id="message-panel" role="tabpanel">...</div>
+                            <div class="tab-pane fade" id="social-panel" role="tabpanel">
+                                <div class="container-fluid text-center">
+                                    <div class="row">
+                                        <div class="col-6 offset-3">
+                                            <figure class="figure">
+                                                <figcaption class="figure-caption text-center">
+                                                    <h5 class="mt-2">Around the Web</h5>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                    <div class="social-deck" ng-repeat="card in socialCards">
+                                        <a class="btn btn-secondary" href="http://{{card.href}}"
+                                           aria-label="{{card.name}}" target="_blank">
+                                            <span class="{{card.iconClass}}" aria-hidden="true"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="message-panel" role="tabpanel">
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -188,7 +197,7 @@
             <div class="card-deck text-center">
                 <div class="card card-inverse card-info text-center btn-info" data-toggle="modal"
                      data-target="#{{board.name}}Modal"
-                     ng-repeat="board in boards | filter:q as results">
+                     ng-repeat="board in boards | filter:{isVisible:true}">
                     <div ng-click="open(board)">
                         <span class="card-img-top" ng-class="board.iconClass" aria-hidden="true"></span>
                         <div class="card-block">
@@ -203,14 +212,12 @@
     </div>
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
-        integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
-        crossorigin="anonymous"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
-        integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
-        crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular-animate.min.js"></script>
+<script src="re-tree.min.js"></script>
+<script src="cdnjs.cloudflare.com/ajax/libs/ng-device-detector/4.03/ng-device-detector.min.js"></script>
 <script type="text/javascript" src="script.js"></script>
 
 </body>

@@ -16,15 +16,17 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular-animate.min.js"></script>
+<script src="re-tree.min.js"></script>
+<script src="cdnjs.cloudflare.com/ajax/libs/ng-device-detector/4.03/ng-device-detector.min.js"></script>
 
 
 
-<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
-<script type="text/javascript" src="node_modules/tether/dist/js/tether.min.js"></script>
-<script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
-<script type="text/javascript" src="node_modules/angular-animate/angular-animate.min.js"></script>
-<script type="text/javascript" src="node_modules/re-tree/re-tree.min.js"></script>
-<script type="text/javascript" src="node_modules/ng-device-detector/ng-device-detector.min.js"></script>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/tether/dist/js/tether.min.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="node_modules/angular/angular.min.js"></script>
+<script src="node_modules/angular-animate/angular-animate.min.js"></script>
+<script src="node_modules/re-tree/re-tree.min.js"></script>
+<script src="node_modules/ng-device-detector/ng-device-detector.min.js"></script>
 
 */

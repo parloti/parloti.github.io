@@ -8,8 +8,8 @@
     <title>Alex Parloti</title>
 
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.css">
     <link href="animations.css" rel="stylesheet" type="text/css">
     <link href="style.css" rel="stylesheet" type="text/css">
 
@@ -53,7 +53,8 @@
                         <div role="navigation">
                             <nav class="nav nav-tabs flex-column flex-sm-row justify-content-center" role="tablist">
                                 <a ng-repeat="nav in board.navigation | filter:{isVisible:true}"
-                                   class="nav-link flex-sm-fill text-sm-center {{$index==0?'active':''}}" data-toggle="tab"
+                                   class="nav-link flex-sm-fill text-sm-center {{$index==0?'active':''}}"
+                                   data-toggle="tab"
                                    href="{{nav.href}}" role="tab">
                                     <span class="{{nav.iconClass}}" aria-hidden="true"></span> {{nav.name}}
                                 </a>
@@ -173,14 +174,75 @@
                                     </div>
                                     <div class="social-deck" ng-repeat="card in socialCards">
                                         <a class="btn btn-secondary" href="http://{{card.href}}"
-                                           aria-label="{{card.name}}" target="_blank">
+                                           aria-label="{{card.name}}" target="_blank" title="{{card.name}}">
                                             <span class="{{card.iconClass}}" aria-hidden="true"></span>
                                         </a>
                                     </div>
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="message-panel" role="tabpanel">
-
+                                <div class="container-fluid text-center pt-3">
+                                    <div class="messenger-deck" ng-repeat="card in messengersCards">
+                                        <a class="btn btn-secondary"
+                                           href="http://{{card.links[$scope.os]||card.links.browserLink}}"
+                                           aria-label="{{card.name}}" target="_blank" title="{{card.name}}">
+                                            <span class="{{card.iconClass}}" aria-hidden="true"></span>
+                                        </a>
+                                    </div>
+                                    <div class="alert alert-info" role="alert">
+                                        You can talk to me in these messengers.<br>Or use this form.
+                                    </div>
+                                    <form id="form-message" class="mt-3 text-left">
+                                        <div class="messages"></div>
+                                        <div class="form-group row">
+                                            <label for="name" class="col-2 col-form-label sr-only">Name</label>
+                                            <div class="col-10 offset-2">
+                                                <input type="text" class="form-control" id="name"
+                                                       aria-describedby="emailHelp"
+                                                       placeholder="Name"
+                                                       required="required" data-error="Name is required.">
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="email" class="col-2 col-form-label sr-only">Email</label>
+                                            <div class="col-10 offset-2">
+                                                <input type="email" class="form-control" id="email"
+                                                       aria-describedby="emailHelp"
+                                                       placeholder="E-mail"
+                                                       required="required" data-error="Valid email is required.">
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="phone" class="col-2 col-form-label sr-only">Phone</label>
+                                            <div class="col-10 offset-2">
+                                                <input id="phone" type="tel" class="form-control"
+                                                       placeholder="Phone">
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group  row">
+                                            <label for="message" class="col-2 col-form-label sr-only">Message</label>
+                                            <div class="col-10 offset-2">
+                                                <textarea id="message" class="form-control"
+                                                          placeholder="Message for me"
+                                                          rows="4" required="required"
+                                                          data-error="Please, leave a message."></textarea>
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-10 offset-2">
+                                                <button type="submit" class="btn btn-primary">
+                                                    <span class="fa fa-send" aria-hidden="true"></span>
+                                                    Send
+                                                </button>
+                                                <span class="text-info">or press <strong>enter</strong></span>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -211,13 +273,13 @@
         </div>
     </div>
 </div>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular-animate.min.js"></script>
-<script src="re-tree.min.js"></script>
-<script src="cdnjs.cloudflare.com/ajax/libs/ng-device-detector/4.03/ng-device-detector.min.js"></script>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/tether/dist/js/tether.min.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="node_modules/angular/angular.min.js"></script>
+<script src="node_modules/angular-animate/angular-animate.min.js"></script>
+<script src="node_modules/re-tree/re-tree.min.js"></script>
+<script src="node_modules/ng-device-detector/ng-device-detector.min.js"></script>
 <script type="text/javascript" src="script.js"></script>
 
 </body>

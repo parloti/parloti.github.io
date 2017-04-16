@@ -1,6 +1,14 @@
-
 debugger;
 !function () {
+	class App {
+		constructor() {
+			this.promises = [];
+		}
+		
+		static pushPromise(promise) {
+			this.promises.push(promise);
+		}
+	}
 	class Directory {
 		constructor(params) {
 			debugger;
@@ -27,18 +35,27 @@ debugger;
 			debugger;
 			let fs = require('fs');
 			let path = require('path');
-			files.forEach((name) => {
-				let filePath = path.join(this.relativePath, name);
+			let file = files.pop();
+			if (files.length === 0) {
+				debugger;
+				//finsh array
+			}
+			else if (files) {
+				let filePath = path.join(this.relativePath, file);
 				fs.stat(filePath, (error, stats) => {
 					debugger;
 					let args = {
-						name: name,
+						name: file,
 						filePath: filePath,
 						stats: stats
 					}
 					this.checkStoringType(args);
 				});
-			})
+			}
+			else {
+				let error = `'files' is not a array.`;
+				throw new Error(error);
+			}
 		}
 		
 		checkStoringType(params) {

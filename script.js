@@ -14,6 +14,7 @@
 	}).controller('repeatController', ['$scope', 'deviceDetector', function ($scope, deviceDetector) {
 		console.log(deviceDetector);
 		$scope.browser = deviceDetector.browser;
+		$scope.os = deviceDetector.os;
 		$scope.boards = [
 			{
 				name: 'About',
@@ -172,6 +173,62 @@
 				href: "youtube.com/user/parloti",
 				iconClass: 'fa fa-youtube-play',
 				isVisible: false,
+				isActive: true
+			}
+		];
+		$scope.messengersCards = [
+			{
+				name: 'Skype',
+				links: {
+					android: 'play.google.com/store/apps/details?id=com.skype.raider',
+					ios: 'itunes.apple.com/app/id304878510',
+					browserLink: 'web.skype.com'
+				},
+				iconClass: 'fa fa-skype',
+				isVisible: true,
+				isActive: true
+			},
+			{
+				name: 'Telegram',
+				links: {
+					android: 'play.google.com/store/apps/details?id=org.telegram.messenger',
+					ios: 'itunes.apple.com/app/id686449807',
+					browserLink: 'web.telegram.org'
+				},
+				iconClass: 'fa fa-telegram',
+				isVisible: true,
+				isActive: true
+			},
+			{
+				name: 'WhatsApp',
+				links: {
+					android: 'play.google.com/store/apps/details?id=com.whatsapp',
+					ios: 'itunes.apple.com/app/id310633997',
+					browserLink: 'web.whatsapp.com'
+				},
+				iconClass: 'fa fa-whatsapp',
+				isVisible: true,
+				isActive: true
+			},
+			{
+				name: 'Facebook Messenger',
+				links: {
+					android: 'play.google.com/store/apps/details?id=com.facebook.orca',
+					ios: 'itunes.apple.com/app/id454638411',
+					browserLink: 'messenger.com'
+				},
+				iconClass: 'fa fa-comments fa-messenger',
+				isVisible: true,
+				isActive: true
+			},
+			{
+				name: 'Google Allo',
+				links: {
+					android: 'play.google.com/store/apps/details?id=com.google.android.apps.fireball',
+					browserLink: 'allo.google.com'
+				},
+				iconClass: 'fa fa-comments fa-allo',
+				isVisible: true,
 				isActive: true
 			}
 		];

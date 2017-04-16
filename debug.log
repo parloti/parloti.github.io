@@ -1,8 +1,0 @@
-[0414/165511.147:ERROR:process_reader_win.cc(99)] process 1604588 not found
-[0414/165511.147:ERROR:exception_snapshot_win.cc(87)] thread ID 1605236 not found in process
-[0414/165511.147:WARNING:crash_report_exception_handler.cc(60)] ProcessSnapshotWin::Initialize failed
-[0414/165511.147:ERROR:scoped_process_suspend.cc(38)] NtResumeProcess: An attempt was made to access an exiting process.  (0xc000010a)
-[0414/225713.519:ERROR:process_reader_win.cc(99)] process 1687108 not found
-[0414/225713.520:ERROR:exception_snapshot_win.cc(87)] thread ID 1665520 not found in process
-[0414/225713.520:WARNING:crash_report_exception_handler.cc(60)] ProcessSnapshotWin::Initialize failed
-[0414/225713.520:ERROR:scoped_process_suspend.cc(38)] NtResumeProcess: An attempt was made to access an exiting process.  (0xc000010a)

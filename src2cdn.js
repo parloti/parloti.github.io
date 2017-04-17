@@ -1,55 +1,59 @@
+//
 debugger;
 !function () {
-	class App {
-		constructor() {
-			this.promises = [];
-		}
-		
-		static pushPromise(promise) {
-			this.promises.push(promise);
-		}
-	}
+	let fs = require('fs');
+	let path = require('path');
 	class Directory {
 		constructor(params) {
-			debugger;
 			this.relativePath = params.relativePath;
-			this.subDirectories = [];
-			this.files = [];
+			this.directoryPromise = params.directoryPromise;
 			this.readDirectory();
 		}
 		
 		readDirectory() {
-			debugger;
-			let fs = require('fs');
-			let path = require('path');
 			fs.readdir(this.relativePath, (error, files) => {
 				debugger;
 				if (error) {
-					throw new Error(error);
+					throw error;
 				}
 				this.readStat(files);
 			});
 		}
 		
 		readStat(files) {
-			debugger;
-			let fs = require('fs');
-			let path = require('path');
-			let file = files.pop();
 			if (files.length === 0) {
 				debugger;
-				//finsh array
+				this.directoryPromise.resolve();
 			}
 			else if (files) {
+				let file = files.pop();
 				let filePath = path.join(this.relativePath, file);
 				fs.stat(filePath, (error, stats) => {
 					debugger;
-					let args = {
-						name: file,
-						filePath: filePath,
-						stats: stats
+					if (error) {
+						throw error;
 					}
-					this.checkStoringType(args);
+					new Promise((resolve, reject) => {
+						let args = {
+							name: file,
+							filePath: filePath,
+							stats: stats,
+							filePromise: {
+								resolve: resolve,
+								reject: reject
+							}
+						};
+						this.checkStoringType(args);
+					}).then(
+						(value) => {
+							debugger;
+							this.readStat(files);
+						}
+					).catch(
+						(reason) => {
+							debugger;
+						}
+					);
 				});
 			}
 			else {
@@ -67,36 +71,51 @@ debugger;
 				relativePath: params.filePath
 			}
 			if (isFile) {
-				this.pushFile(args);
+				args.filePromise = params.filePromise;
+				new File(args);
 			}
 			else if (isDirectory) {
-				this.pushDirectory(args);
+				args.directoryPromise = params.filePromise;
+				new Directory(args);
 			}
 			else {
 				let error = `${filePath} is not a file and is not a directory.`;
 				throw new Error(error);
 			}
 		}
-		
-		pushFile(params) {
-			debugger;
-			let args = params;
-			let file = new File(args);
-			this.files.push(file);
-		}
-		
-		pushDirectory(params) {
-			debugger;
-			let args = params;
-			let directory = new Directory(args);
-			this.subDirectories.push(directory);
-		}
 	}
 	class File {
 		constructor(params) {
-			debugger;
 			this.name = params.name;
 			this.relativePath = params.relativePath;
+			this.filePromise = params.filePromise;
+			this.oldContent;
+			this.newContent;
+			this.readContent();
+		}
+		
+		readContent() {
+			fs.readFile(this.relativePath, (error, data) => {
+				debugger;
+				if (error) {
+					throw error;
+				}
+				this.oldContent = data;
+				this.replaceContent();
+				this.writeContent();
+			});
+		}
+		
+		replaceContent() {
+			debugger;
+			if (false) {
+				this.newContent;
+			}
+		}
+		
+		writeContent() {
+			debugger;
+			this.filePromise.resolve();
 		}
 	}
 	class cssFile extends File {
@@ -106,12 +125,26 @@ debugger;
 	class htmlFile extends File {
 	
 	}
+	
 	function main() {
-		let args = {
-			relativePath: './'
-		};
-		let Tree = new Directory(args);
-		debugger;
+		new Promise((resolve, reject) => {
+			let args = {
+				relativePath: './',
+				directoryPromise: {
+					resolve: resolve,
+					reject: reject
+				}
+			};
+			new Directory(args);
+		}).then(
+			(value) => {
+				debugger;
+			}
+		).catch(
+			(reason) => {
+				debugger;
+			}
+		);
 	}
 	
 	main();

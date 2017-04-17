@@ -239,7 +239,28 @@
 			console.log(ngRepeatFinishedEvent);
 			console.log("done");
 			$('#ContactsModal').modal('show');
-			$('nav a:eq(3)').tab('show')
+			$('nav a:eq(3)').tab('show');
+			$('#form-message').validator();
+			$('#form-message').on('submit', function (e) {
+				if (!e.isDefaultPrevented()) {
+					let url = "//alexparloti.com";
+					$.ajax({
+						type: "POST",
+						url: url,
+						data: $(this).serialize(),
+						success: function (data)						{
+							let messageAlert = 'alert-' + data.type;
+							let messageText = data.message;
+							let alertBox = '<div class="alert ' + messageAlert + ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + messageText + '</div>';
+							if (messageAlert && messageText) {
+								$('#form-message').find('.messages').html(alertBox);
+								$('#form-message')[0].reset();
+							}
+						}
+					});
+					return false;
+				}
+			})
 		})
 		
 		

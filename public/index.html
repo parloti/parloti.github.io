@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Alex Parloti</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="animations.css" rel="stylesheet" type="text/css">
+    <link href="style.css" rel="stylesheet" type="text/css">
+
+</head>
+<body ng-app="portfolio">
+<div ng-controller="repeatController">
+    <!-- Modal -->
+    <div class="modal fade" id="{{board.name}}Modal" tabindex="-1" role="dialog"
+         aria-labelledby="{{board.name}}ModalLabel"
+         aria-hidden="true" ng-repeat="board in boards" on-finish-render="renderedModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="{{board.name}}ModalLabel">{{board.name}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div ng-if="board.name==='About'">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col">
+                                    <p>About</p>
+                                    <h1>Hi,</h1><em>I'm Alex Parloti.</em>
+
+                                    I currently work with Javascript, AngularJS and Animation in HTML5 as Freelancer.
+
+                                    When I'm offline, I ... well, I guess I'm always online, but when I get tired of
+                                    codes
+                                    and books I play Age of Empires II: The Conquerors.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-if="board.name==='Skills'"><p>Skills</p></div>
+                    <div ng-if="board.name==='Projects'"><p>Projects</p></div>
+                    <div ng-if="board.name==='Testimonials'"><p>Testimonials</p></div>
+                    <div ng-if="board.name==='Articles'"><p>Articles</p></div>
+                    <div ng-if="board.name==='Contacts'">
+                        <div role="navigation">
+                            <nav class="nav nav-tabs flex-column flex-sm-row justify-content-center" role="tablist">
+                                <a ng-repeat="nav in board.navigation | filter:{isVisible:true}"
+                                   class="nav-link flex-sm-fill text-sm-center {{$index==0?'active':''}}"
+                                   data-toggle="tab"
+                                   href="{{nav.href}}" role="tab">
+                                    <span class="{{nav.iconClass}}" aria-hidden="true"></span> {{nav.name}}
+                                </a>
+                            </nav>
+                        </div>
+                        <div id="tabs" class="tab-content">
+                            <div class="tab-pane fade show active" id="qr-code-panel" role="tabpanel">
+                                <figure class="figure">
+                                    <figcaption class="figure-caption text-center">
+                                        <h5 class="mt-2">Add Me to Your Contacts List</h5>
+                                    </figcaption>
+                                    <div class="code code-{{browser}}"></div>
+                                </figure>
+                            </div>
+                            <div class="tab-pane fade" id="vcard-panel" role="tabpanel">
+                                <div class="container-fluid text-center">
+                                    <div class="row">
+                                        <div class="col-6 offset-3">
+                                            <figure class="figure">
+                                                <div class="mt-2 profile profile-{{browser}}"></div>
+                                                <figcaption class="figure-caption text-center">
+                                                    <h4>Alex Parloti</h4>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                    <div class="row vcard-functions-head">
+                                        <div class="col-6">
+                                            <a href="tel:+393914506075" target="_blank">
+                                                <span class="fa fa-phone" aria-hidden="true"></span>
+                                                <h5>Call</h5>
+                                            </a>
+                                        </div>
+                                        <div class="col-6 ">
+                                            <a href="mailto:parloti@gmail.com" target="_blank" class="last-element">
+                                                </span><span class="fa fa-send-o" aria-hidden="true"></span>
+                                                <h5>E-mail</h5>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="vcard-functions-body">
+                                        <div class="row align-items-center">
+                                            <div class="col-1 offset-1">
+                                                <span class="fa fa-phone d-flex mr-3" aria-hidden="true"></span>
+                                            </div>
+                                            <div class="col-10 text-left">
+                                                <h5 class="mt-0">
+                                                    <a href="tel:+393914506075" target="_blank">
+                                                        +393914506075
+                                                    </a>
+                                                </h5>
+                                                Phone
+                                            </div>
+                                        </div>
+                                        <div class="row align-items-center">
+                                            <div class="col-1 offset-1">
+                                                <span class="fa fa-envelope d-flex mr-3" aria-hidden="true"></span>
+                                            </div>
+                                            <div class="col-10 text-left">
+                                                <h5 class="mt-0">
+                                                    <a href="mailto:parloti@gmail.com" target="_blank">
+                                                        parloti@gmail.com
+                                                    </a>
+                                                </h5>
+                                                E-mail
+                                            </div>
+                                        </div>
+                                        <div class="row align-items-center">
+                                            <div class="col-1 offset-1">
+                                                <span class="fa fa-map-marker d-flex mr-3" aria-hidden="true"></span>
+                                            </div>
+                                            <div class="col-10 text-left">
+                                                <h5 class="mt-0">
+                                                    <a href="https://www.google.com/maps?q=italy" target="_blank">
+                                                        Italy
+                                                    </a>
+                                                </h5>
+                                                Location
+                                            </div>
+                                        </div>
+                                        <div class="row align-items-center">
+                                            <div class="col-1 offset-1">
+                                                <span class="fa fa-globe d-flex mr-3" aria-hidden="true"></span>
+                                            </div>
+                                            <div class="col-10 text-left">
+                                                <h5 class="mt-0">
+                                                    <a href="https://www.alexparloti.com/" target="_blank">
+                                                        alexparloti.com
+                                                    </a>
+                                                </h5>
+                                                Website
+                                            </div>
+                                        </div>
+                                        <hr>
+                                    </div>
+                                    <div class="row mt-2 p-4">
+                                        <div class="col-12 text-center">
+                                            <a href="vcard_alex_parloti.vcf" target="_blank"
+                                               title="vCard download">
+                                                <h5><span class="fa fa-download" aria-hidden="true"></span> Download
+                                                    this vCard</h5>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="social-panel" role="tabpanel">
+                                <div class="container-fluid text-center">
+                                    <div class="row">
+                                        <div class="col-6 offset-3">
+                                            <figure class="figure">
+                                                <figcaption class="figure-caption text-center">
+                                                    <h5 class="mt-2">Around the Web</h5>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                    <div class="social-deck" ng-repeat="card in socialCards">
+                                        <a class="btn btn-secondary" href="http://{{card.href}}"
+                                           aria-label="{{card.name}}" target="_blank" title="{{card.name}}">
+                                            <span class="{{card.iconClass}}" aria-hidden="true"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="message-panel" role="tabpanel">
+                                <div class="container-fluid text-center pt-3">
+                                    <div class="messenger-deck" ng-repeat="card in messengersCards">
+                                        <a class="btn btn-secondary"
+                                           href="http://{{card.links[$scope.os]||card.links.browserLink}}"
+                                           aria-label="{{card.name}}" target="_blank" title="{{card.name}}">
+                                            <span class="{{card.iconClass}}" aria-hidden="true"></span>
+                                        </a>
+                                    </div>
+                                    <div class="alert alert-info" role="alert">
+                                        You can talk to me in these messengers.<br>Or use this form.
+                                    </div>
+                                    <form id="form-message" class="mt-3 text-left" data-toggle="validator" role="form" method="post" action="//alexparloti.com">
+                                        <div class="messages"></div>
+                                        <div class="form-group row ">
+                                            <label for="name" class="col-2 col-form-label sr-only">Name</label>
+                                            <div class="col-10 offset-2">
+                                                <input type="text" class="form-control" id="name"
+                                                       aria-describedby="emailHelp"
+                                                       placeholder="Name"
+                                                       required="required" data-error="Please fill out this field." value="alex">
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="email" class="col-2 col-form-label sr-only">Email</label>
+                                            <div class="col-10 offset-2">
+                                                <input type="email" class="form-control" id="email"
+                                                       aria-describedby="emailHelp"
+                                                       placeholder="E-mail"
+                                                       required="required" data-error="That email address is invalid." value="alexpallotta@gmail.com">
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="phone" class="col-2 col-form-label sr-only">Phone</label>
+                                            <div class="col-10 offset-2">
+                                                <input id="phone" type="tel" class="form-control"
+                                                       placeholder="Phone">
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="subject" class="col-2 col-form-label sr-only">Subject</label>
+                                            <div class="col-10 offset-2">
+                                                <input id="subject" type="text" class="form-control"
+                                                       placeholder="Subject" required="required" data-error="Please fill out this field." value="oi">
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group  row">
+                                            <label for="message" class="col-2 col-form-label sr-only">Message</label>
+                                            <div class="col-10 offset-2">
+                                                <textarea id="message" class="form-control"
+                                                          placeholder="Message for me"
+                                                          rows="4" required="required"
+                                                          data-error="Please, leave a message.">msg</textarea>
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-10 offset-2">
+                                                <button type="submit" class="btn btn-primary">
+                                                    <span class="fa fa-send" aria-hidden="true"></span>
+                                                    Send
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <!-- cards-->
+        <div class="jumbotron">
+            <div class="card-deck text-center">
+                <div class="card card-inverse card-info text-center btn-info" data-toggle="modal"
+                     data-target="#{{board.name}}Modal"
+                     ng-repeat="board in boards | filter:{isVisible:true}">
+                    <div ng-click="open(board)">
+                        <span class="card-img-top" ng-class="board.iconClass" aria-hidden="true"></span>
+                        <div class="card-block">
+                            <h4 class="card-title">
+                                {{board.name}}
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular-animate.min.js"></script>
+<script src="re-tree.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ng-device-detector/4.0.3/ng-device-detector.min.js"></script>
+<script type="text/javascript" src="script.js"></script>
+
+</body>
+</html>

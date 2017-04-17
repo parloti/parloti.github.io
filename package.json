@@ -8,13 +8,14 @@
   "scripts": {
     "prestart": "npm install",
     "update": "npm update",
-    "start": "http-server -a localhost -p 8000 -c-1 ./ -o",
+    "start": "http-server -a localhost -p 8000 -c-1 ./public -o",
     "src2cdn": "src2cdn.js"
   },
   "dependencies": {
     "angular": "^1.6.4",
     "angular-animate": "^1.6.4",
     "bootstrap": "^4.0.0-alpha.6",
+    "bootstrap-validator": "^0.11.9",
     "font-awesome": "^4.7.0",
     "jquery": "^3.2.1",
     "ng-device-detector": "^4.0.3"
@@ -22,6 +23,7 @@
   "devDependencies": {
     "cdnizer": "^1.1.6",
     "fs-promise": "^2.0.2",
+    "ftp": "^0.3.10",
     "gulp": "^3.9.1",
     "gulp-batch-replace": "0.0.0",
     "gulp-cdn-replace": "^0.6.0",

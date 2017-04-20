@@ -25,13 +25,13 @@
 			{
 				name: 'Skills',
 				iconClass: 'fa fa-wrench icon-white',
-				isVisible: true,
+				isVisible: false,
 				isActive: true
 			},
 			{
 				name: 'Projects',
 				iconClass: 'fa fa-cogs icon-white',
-				isVisible: true,
+				isVisible: false,
 				isActive: true
 			},
 			{
@@ -238,16 +238,17 @@
 		$scope.$on('renderedModal', function (ngRepeatFinishedEvent) {
 			console.log(ngRepeatFinishedEvent);
 			console.log("done");
-			$('#ContactsModal').modal('show');
-			$('nav a:eq(3)').tab('show');
+			$('#AboutModal').modal('show');
+			//$('nav a:eq(3)').tab('show');
 			$('#form-message').validator();
 			$('#form-message').on('submit', function (e) {
 				if (!e.isDefaultPrevented()) {
-					let url = "//alexparloti.com";
+					let url = "index.php";
+					let data =$(this).serialize();
 					$.ajax({
 						type: "POST",
 						url: url,
-						data: $(this).serialize(),
+						data: data,
 						success: function (data)						{
 							let messageAlert = 'alert-' + data.type;
 							let messageText = data.message;
@@ -262,7 +263,5 @@
 				}
 			})
 		})
-		
-		
 	}]);
 })(window.angular);

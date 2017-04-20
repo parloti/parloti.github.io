@@ -1,8 +1,8 @@
 //
 debugger;
 !function () {
-	let fs = require('fs');
-	let path = require('path');
+	const fs = require('fs');
+	const path = require('path');
 	class Directory {
 		constructor(params) {
 			this.relativePath = params.relativePath;

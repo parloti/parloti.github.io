@@ -8,7 +8,7 @@
   "scripts": {
     "prestart": "npm install",
     "update": "npm update",
-    "start": "http-server -a localhost -p 8000 -c-1 ./public -o",
+    "start": "http-server -a localhost -p 8000 -c-1 ./public_html -o",
     "src2cdn": "src2cdn.js"
   },
   "dependencies": {

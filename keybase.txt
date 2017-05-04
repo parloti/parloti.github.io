@@ -1,0 +1,54 @@
+==================================================================
+https://keybase.io/parloti
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://parloti.github.io
+  * I am parloti (https://keybase.io/parloti) on keybase.
+  * I have a public key ASBBee7fZ5CysHVRJnhl1NJAbCb-1rGBCSXvVKwyDNCxtQo
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "01204179eedf6790b2b07551267865d4d2406c26fed6b1810925ef54ac320cd0b1b50a",
+            "host": "keybase.io",
+            "kid": "01204179eedf6790b2b07551267865d4d2406c26fed6b1810925ef54ac320cd0b1b50a",
+            "uid": "9a85f2adde5fc6e43fe10b754e240e19",
+            "username": "parloti"
+        },
+        "service": {
+            "hostname": "parloti.github.io",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.22"
+    },
+    "ctime": 1493914136,
+    "expire_in": 504576000,
+    "merkle_root": {
+        "ctime": 1493914120,
+        "hash": "7d6a34267c50fb4dd2f3adbb2e36dce08983595b8b7deecedaaf6a6201e228ecc1d30b400720d29774dc7c787e439ee1d6a05fc592fd13c3e27915bfd5cdc863",
+        "seqno": 1053372
+    },
+    "prev": "b99657441cea9ecc83afcbfd48a7e3a40c4433942c972f9d80ecb241f4a8b99c",
+    "seqno": 9,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgQXnu32eQsrB1USZ4ZdTSQGwm/taxgQkl71SsMgzQsbUKp3BheWxvYWTFAvl7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwNDE3OWVlZGY2NzkwYjJiMDc1NTEyNjc4NjVkNGQyNDA2YzI2ZmVkNmIxODEwOTI1ZWY1NGFjMzIwY2QwYjFiNTBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwNDE3OWVlZGY2NzkwYjJiMDc1NTEyNjc4NjVkNGQyNDA2YzI2ZmVkNmIxODEwOTI1ZWY1NGFjMzIwY2QwYjFiNTBhIiwidWlkIjoiOWE4NWYyYWRkZTVmYzZlNDNmZTEwYjc1NGUyNDBlMTkiLCJ1c2VybmFtZSI6InBhcmxvdGkifSwic2VydmljZSI6eyJob3N0bmFtZSI6InBhcmxvdGkuZ2l0aHViLmlvIiwicHJvdG9jb2wiOiJodHRwczoifSwidHlwZSI6IndlYl9zZXJ2aWNlX2JpbmRpbmciLCJ2ZXJzaW9uIjoxfSwiY2xpZW50Ijp7Im5hbWUiOiJrZXliYXNlLmlvIGdvIGNsaWVudCIsInZlcnNpb24iOiIxLjAuMjIifSwiY3RpbWUiOjE0OTM5MTQxMzYsImV4cGlyZV9pbiI6NTA0NTc2MDAwLCJtZXJrbGVfcm9vdCI6eyJjdGltZSI6MTQ5MzkxNDEyMCwiaGFzaCI6IjdkNmEzNDI2N2M1MGZiNGRkMmYzYWRiYjJlMzZkY2UwODk4MzU5NWI4YjdkZWVjZWRhYWY2YTYyMDFlMjI4ZWNjMWQzMGI0MDA3MjBkMjk3NzRkYzdjNzg3ZTQzOWVlMWQ2YTA1ZmM1OTJmZDEzYzNlMjc5MTViZmQ1Y2RjODYzIiwic2Vxbm8iOjEwNTMzNzJ9LCJwcmV2IjoiYjk5NjU3NDQxY2VhOWVjYzgzYWZjYmZkNDhhN2UzYTQwYzQ0MzM5NDJjOTcyZjlkODBlY2IyNDFmNGE4Yjk5YyIsInNlcW5vIjo5LCJ0YWciOiJzaWduYXR1cmUifaNzaWfEQEeneh1BGLF8aYnZUfbvsxXo2j9Yza5/754zYCDP2ewTDL/kNzH6/LEcqbYiSFoNLMVbdDHAwGuHz5uJ34etMQqoc2lnX3R5cGUgpGhhc2iCpHR5cGUIpXZhbHVlxCCUK5/CIlEup5R9aKdtiEliBnYoXQ8Zm94k4hV24o9TdKN0YWfNAgKndmVyc2lvbgE=
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/parloti
+
+==================================================================
